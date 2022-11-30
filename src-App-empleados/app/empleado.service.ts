@@ -10,18 +10,27 @@ export class EmpleadosService {
 
 
   }
-empleados:Empleado[]=[
+
+  setEmpleados(misEmpleados:Empleado[]){
+    this.empleados=misEmpleados;
+  }
+
+  obtenerEmpleados(){
+    return this.dataService.cargarEmpleados(); 
+  }
+  empleados:Empleado[]=[];
+// empleados:Empleado[]=[
 
   
 
-    new Empleado("Juan","Diaz","Presidente",7500),
-    new Empleado("Ana","Martin","Directora",5500),
-    new Empleado("Maria","Fdez","Jefa seccion",3500),
-    new Empleado("Laura","Lopez","Administrativo",2500),
+//     new Empleado("Juan","Diaz","Presidente",7500),
+//     new Empleado("Ana","Martin","Directora",5500),
+//     new Empleado("Maria","Fdez","Jefa seccion",3500),
+//     new Empleado("Laura","Lopez","Administrativo",2500),
 
 
 
-  ];
+//   ];
 
   agregarEmpleadoServicio(empleado:Empleado){
     this.servicioVentanaEmergente.muestraMensaje("Persona que se va a agregar: " + "\n" +empleado.nombre
@@ -41,9 +50,13 @@ empleados:Empleado[]=[
     empeladoModificado.apellido=empleado.apellido;
     empeladoModificado.cargo=empleado.cargo;
     empeladoModificado.salario=empleado.salario;
+
+    this.dataService.actualizarEmpleado(indice, empleado);
   }
 
   eliminarEmpleado(indice:number){
     this.empleados.splice(indice,1);
+    this.dataService.eliminarEmpleado(indice);
+    if(this.empleados!=null) this.dataService.guardarEmpleados(this.empleados);
   }
 }
