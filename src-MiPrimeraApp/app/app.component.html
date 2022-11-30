@@ -1,6 +1,17 @@
-    <span style="color: red; font-weight: bold;">{{ title }} Esta ejecutandose y sera una gran aplicación</span>
-    <br>
-    <span>Saludo: {{saludo}}</span>
-
-    <br>
-    <app-empleados></app-empleados>
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/proyectos">Proyectos </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/quienes">Quienes Somos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/contacto">Contacto</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
